@@ -1,0 +1,46 @@
+<button type="button" class="btn btn-primary add-newsletter" (click)="NavigateToMakeNewsletter()">
+  Add Newsletter</button>
+<div class="col-xs-12" style="margin-top:120px; width:1350px; margin-left:-120px;">
+  <div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered" [mfData]="userlist" #mf="mfDataTable" [mfRowsOnPage]="5">
+      <thead>
+        <tr>
+          <th style="width:100px;max-width:40px;text-align: center">S No.</th>
+          <th style="width:250px;max-width:60px;text-align: center">Title</th>
+          <th style="width:100px;max-width:40px;text-align: center">Create Date</th>
+          <th style="width:250px;max-width:60px;text-align: center">Created By</th>
+          <th style="width:80px;max-width:20px;text-align: center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of mf.data; let i = index;">
+          <td scope="row" style="text-align: center">{{i+1}}</td>
+          <td style="text-align: center">{{user.documentname}}</td>
+          <td style="text-align: center">{{user.createdate | date : "dd-MM-yyyy"}}</td>
+          <td style="text-align: center">{{user.createdby}}</td>
+          <td style="text-align: center">
+            <button data-tooltip="Edit" type="button" class="btn btn-primary btn-sm" [routerLink]="user._id">
+              <i class="fa fa-edit"></i>
+            </button>&nbsp;&nbsp;
+            <button data-tooltip="Delete" type="button" class="btn btn-danger btn-sm" (click)="DeleteNewsletter(user._id)">
+              <i class="fa fa-trash"></i>
+            </button>&nbsp;&nbsp;
+            <button data-tooltip="Copy" type="button" class="btn btn-primary btn-sm" (click)="DuplicateNewsletter(user._id, user.documentname)">
+              <i class="fa fa-copy"></i>
+            </button>&nbsp;&nbsp;
+            <button data-tooltip="View" type="button" class="btn btn-primary btn-sm" [routerLink]="'view/'+user._id">
+              <i class="fa fa-file"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5">
+            <mfBootstrapPaginator style="float:right;"></mfBootstrapPaginator>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

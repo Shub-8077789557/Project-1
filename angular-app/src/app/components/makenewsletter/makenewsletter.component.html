@@ -1,0 +1,43 @@
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Title</span>
+  </div>
+  <input type="text" class="form-control" #documentname placeholder="Newsletter Title" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+<div class="newsletter-save">
+  <button type="button" class="btn btn-primary" (click)="onSubmit(documentname.value)">Save</button>
+  <button type="button" class="btn btn-secondary" (click)="NavigateToDashboard();">Cancel</button>
+</div>
+
+
+
+<div class="tabs">
+  <div class="tab-2">
+    <label for="tab2-1">HR</label>
+    <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
+    <div>
+      <form [formGroup]="form1" (ngSubmit)="onSubmit(documentname.value)">
+        <app-froala-component formControlName="HRmarkup"></app-froala-component>
+      </form>
+    </div>
+  </div>
+  <div class="tab-2">
+    <label for="tab2-2">Admin</label>
+    <input id="tab2-2" name="tabs-two" type="radio">
+    <div>
+      <form [formGroup]="form2" (ngSubmit)="onSubmit(documentname.value)">
+        <app-froala-component formControlName="Amarkup"></app-froala-component>
+      </form>
+    </div>
+  </div>
+  <div class="tab-2">
+    <label for="tab2-3">Marketing</label>
+    <input id="tab2-3" name="tabs-two" type="radio">
+    <div>
+      <form [formGroup]="form3" (ngSubmit)="onSubmit(documentname.value)">
+        <app-froala-component formControlName="Mrmarkup"></app-froala-component>
+      </form>
+    </div>
+  </div>
+</div>

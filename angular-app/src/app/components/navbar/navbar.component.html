@@ -1,0 +1,42 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <img src="assets/D-Logo.png" *ngIf="!authService.loggedIn()">&nbsp;<a class="navbar-brand" *ngIf="!authService.loggedIn()" href="#" style="color:white;top:4px;">DocHub</a>
+        <a class="nav-link" *ngIf="!authService.loggedIn()"  routerLink="" style="color:white;font-size:20px;"><i class="fa fa-home"></i>&nbsp;Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                    <div id="mySidenav" *ngIf="authService.loggedIn()" class="sidenav">
+                            <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+                            <a class="nav-link" *ngIf="authService.loggedIn()"  routerLink="" style="color:white;font-size:20px;"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
+                            <a class="nav-link" *ngIf="authService.loggedIn()" routerLink="dashboard" routerLinkActive="active" style="color:white;font-size:20px;"><i class="fa fa-window-maximize"></i>&nbsp;&nbsp;Dashboard</a>
+                            <a class="nav-link" *ngIf="authService.loggedIn()" routerLink="profile" routerLinkActive="active" style="color:white;font-size:20px;"><i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;Profile</a>
+                            <a class="nav-link" *ngIf="authService.loggedIn()" (click)="onLogout();" style="cursor:pointer; color:white;font-size:20px;" routerLinkActive="active"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Logout</a>
+                          </div>
+                <span style="font-size:20px;cursor:pointer;color:white;padding: .5rem 1rem;" *ngIf="authService.loggedIn()" (click)="openNav()">&#9776;&nbsp;&nbsp;Menu</span>
+                   
+                <span class="sr-only">(current)</span>
+                
+            </li>
+            <li class="nav-item" style="position:absolute; right:220px; top:6px; ">
+                <a class="nav-link" *ngIf="authService.loggedIn()" routerLink="dashboard" routerLinkActive="active" style="color:white;"><i class="fa fa-window-maximize"></i>&nbsp;Dashboard</a>
+            </li>
+            <li class="nav-item" style="position:absolute; right:135px; top:6px; ">
+                <a class="nav-link" *ngIf="authService.loggedIn()" routerLink="profile" routerLinkActive="active" style="color:white;"><i class="fa fa-user-circle-o"></i>&nbsp;Profile</a>
+            </li>
+            <li class="nav-item" style="position:absolute; right:150px; top:8px; ">
+                <a class="nav-link" *ngIf="!authService.loggedIn()" routerLink="login" routerLinkActive="active" style="color:white;font-size: 20px;"><i class="fa fa-hand-o-right"></i>&nbsp;Login</a>
+            </li>
+            <li class="nav-item" style="position:absolute; right:30px; top:8px; ">
+                <a class="nav-link" *ngIf="!authService.loggedIn()" routerLink="register" routerLinkActive="active" style="color:white;font-size: 20px;"><i class="fa fa-registered"></i>&nbsp;Register</a>
+            </li>
+            <li class="nav-item" style="position:absolute; right:50px; top:6px; ">
+                <a class="nav-link" *ngIf="authService.loggedIn()" (click)="onLogout();" style="cursor:pointer; color:white;" routerLinkActive="active"><i class="fa fa-power-off"></i>&nbsp;Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>

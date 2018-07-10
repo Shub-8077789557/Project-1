@@ -1,0 +1,22 @@
+
+<div style="text-align: center; padding-top:10px;"><h4>{{this.NewsletterData.documentname}}</h4></div><br>
+
+<div class="tab">
+  <button class="tablinks" (click)="openCity(event, 'London')">HR</button>
+  <button class="tablinks" (click)="openCity(event, 'Paris')">Admin</button>
+  <button class="tablinks" (click)="openCity(event, 'Tokyo')">Marketing</button>
+</div>
+
+<div id="London" class="tabcontent hr">
+  {{this.NewsletterData.HRmarkup}}
+</div>
+
+<div id="Paris" class="tabcontent">
+  {{this.NewsletterData.Amarkup}}
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  {{this.NewsletterData.Mrmarkup}}
+</div>
+
+
